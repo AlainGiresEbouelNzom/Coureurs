@@ -1,6 +1,11 @@
 package Coureurs;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class MainApp extends Application
@@ -9,7 +14,21 @@ public class MainApp extends Application
 	@Override
 	public void start(Stage primaryStage) throws Exception
 	{
+		Label label = new Label("Hello World");
+		Rectangle rect = new Rectangle(400, 200, Color.LIGHTBLUE);
+		StackPane root = new StackPane();
+
+		root.getChildren().add(label);
+		root.getChildren().add(rect);
+
+		rect.toBack();
+
+		Scene scene = new Scene(root, 600, 500);
+
+		primaryStage.setScene(scene);
+
 		primaryStage.show();
+		primaryStage.setTitle("Coureurs De Jupons");
 
 	}
 

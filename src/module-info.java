@@ -1,6 +1,7 @@
 module Coureurs
 {
-	requires javafx.graphics;
+	requires javafx.controls;
+	requires transitive javafx.graphics;
 
 	exports Coureurs;
 }
