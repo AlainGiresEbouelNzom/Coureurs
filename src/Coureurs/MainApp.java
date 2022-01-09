@@ -10,8 +10,7 @@ public class MainApp extends Application
 	public void start(Stage primaryStage) throws Exception
 	{
 		primaryStage.show();
-		primaryStage.setWidth(800);
-		primaryStage.setHeight(1000);
+
 	}
 
 }
