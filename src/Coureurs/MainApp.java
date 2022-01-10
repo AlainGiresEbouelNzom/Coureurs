@@ -7,7 +7,10 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -32,9 +35,50 @@ public class MainApp extends Application
 		
 		root.setAlignment(Pos.CENTER);
 		
+		ImageView emptyHeart =  new ImageView(getClass().getResource("/Ressources/Images/emptyHeart.png").toString());
+		ImageView emptyDislike = new ImageView(getClass().getResource("/Ressources/Images/emptyDislike.png").toString());
+		ImageView fullHeart =  new ImageView(getClass().getResource("/Ressources/Images/fullHeart.png").toString());
+		ImageView fullDislike = new ImageView(getClass().getResource("/Ressources/Images/fullDislike.png").toString());
+		
+		
 		
 		addGirlFriend = new Button("I have a new girlfriend");
+		addGirlFriend.setGraphic(emptyHeart);
+		addGirlFriend.setContentDisplay(ContentDisplay.TOP);
+		
+		
+		/*Évènement en forme LambdaExpressions*/
+		addGirlFriend.setOnMouseEntered(e->addGirlFriend.setGraphic(fullHeart));			
+		
+		addGirlFriend.setOnMouseExited(e ->addGirlFriend.setGraphic(emptyHeart));				
+		
+		
+		
+		
 		removeGirlsFriend =  new Button("I lost a grilfriend");
+		removeGirlsFriend.setGraphic(emptyDislike);
+		removeGirlsFriend.setContentDisplay(ContentDisplay.TOP);
+		
+		/*Évènement en forme détailée(Non contractée)*/
+		removeGirlsFriend.setOnMouseEntered(new EventHandler<MouseEvent>()
+		{
+			@Override
+			public void handle(MouseEvent arg0)
+			{
+				removeGirlsFriend.setGraphic(fullDislike);				
+			}
+		});
+		
+
+		removeGirlsFriend.setOnMouseExited(new EventHandler<MouseEvent>()
+		{
+			@Override
+			public void handle(MouseEvent arg0)
+			{
+				removeGirlsFriend.setGraphic(emptyDislike);				
+			}
+		});
+
 
 	
 		addGirlFriend.setOnAction( new EventHandler<ActionEvent>()
