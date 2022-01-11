@@ -1,6 +1,7 @@
 package Coureurs;
 
 import javafx.application.Application;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -33,8 +34,7 @@ public class MainApp extends Application
 		VBox root = new VBox(45);
 		root.setPadding(new Insets(20));
 		
-		root.setAlignment(Pos.CENTER);
-		
+		root.setAlignment(Pos.CENTER);		
 		
 		/*Création d'object image*/
 		ImageView emptyHeart =  new ImageView(getClass().getResource("/Ressources/Images/emptyHeart.png").toString());
@@ -47,18 +47,20 @@ public class MainApp extends Application
 		addGirlFriend = new Button("I have a new girlfriend");
 		
 		/*Insertion de l'object image*/
-		addGirlFriend.setGraphic(emptyHeart);
+	//	addGirlFriend.setGraphic(emptyHeart);
+		
+		 /*Évènement hover avec binding et Insertion de l'image avec changement de propriété*/
+		addGirlFriend.graphicProperty().bind(Bindings.when(addGirlFriend.hoverProperty()).then(emptyHeart).otherwise(fullHeart));		
+		
 		
 		/*Modification de l'emplacement de l'image*/
 		addGirlFriend.setContentDisplay(ContentDisplay.TOP);
 		
 		
-		/*Évènement en forme LambdaExpressions*/
-		addGirlFriend.setOnMouseEntered(e->addGirlFriend.setGraphic(fullHeart));			
+		/*Évènement hover en forme LambdaExpressions*/
+	//	addGirlFriend.setOnMouseEntered(e->addGirlFriend.setGraphic(fullHeart));			
 		
-		addGirlFriend.setOnMouseExited(e ->addGirlFriend.setGraphic(emptyHeart));				
-		
-		
+	//	addGirlFriend.setOnMouseExited(e ->addGirlFriend.setGraphic(emptyHeart));	
 		
 		
 		removeGirlsFriend =  new Button("I lost a grilfriend");
