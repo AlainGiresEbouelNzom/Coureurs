@@ -98,7 +98,7 @@ public class MainApp extends Application
 				UpdateGirlfriends();			   			
 			}
 		});
-		
+		 
 		removeGirlsFriend.setOnAction(new EventHandler<ActionEvent>()
 		{
 			
@@ -117,6 +117,7 @@ public class MainApp extends Application
 		root.getChildren().addAll(labelStatut, addGirlFriend, removeGirlsFriend);
 
 		Scene scene = new Scene(root,300,400);
+		scene.getStylesheets().add(getClass().getResource("/Ressources/StyleCss/style.css").toString());
 
 		primaryStage.setScene(scene);
 
