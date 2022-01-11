@@ -35,6 +35,8 @@ public class MainApp extends Application
 		
 		root.setAlignment(Pos.CENTER);
 		
+		
+		/*Création d'object image*/
 		ImageView emptyHeart =  new ImageView(getClass().getResource("/Ressources/Images/emptyHeart.png").toString());
 		ImageView emptyDislike = new ImageView(getClass().getResource("/Ressources/Images/emptyDislike.png").toString());
 		ImageView fullHeart =  new ImageView(getClass().getResource("/Ressources/Images/fullHeart.png").toString());
@@ -43,7 +45,11 @@ public class MainApp extends Application
 		
 		
 		addGirlFriend = new Button("I have a new girlfriend");
+		
+		/*Insertion de l'object image*/
 		addGirlFriend.setGraphic(emptyHeart);
+		
+		/*Modification de l'emplacement de l'image*/
 		addGirlFriend.setContentDisplay(ContentDisplay.TOP);
 		
 		
@@ -119,6 +125,11 @@ public class MainApp extends Application
 	private void UpdateGirlfriends()
 	{
 		labelStatut.setText("New Number of girlfriend " + girlfriendCount);
+	}
+	
+	public static void main(String[] args)
+	{
+		launch(args);
 	}
 
 }
